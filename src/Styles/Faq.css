@@ -1,0 +1,189 @@
+.faq-section {
+    padding: 80px 40px;
+    background-color: #fcfcfc;
+}
+
+.faq-title-content {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-main-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    color: #1B2433;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.faq-title-underline {
+    width: 80px;
+    height: 4px;
+    background-color: #1A8EFD;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-category-section {
+    margin-bottom: 50px;
+}
+
+.faq-category-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #1A8EFD;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.faq-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.faq-item.open {
+    border-color: #1A8EFD;
+    box-shadow: 0 8px 24px rgba(26, 142, 253, 0.1);
+}
+
+.faq-question {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #444;
+}
+
+.faq-item:hover .faq-question {
+    color: #1A8EFD;
+}
+
+.faq-icon {
+    font-size: 14px;
+    color: #1A8EFD;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer-wrapper {
+    overflow: hidden;
+}
+
+.faq-answer {
+    padding: 0 25px 20px;
+    font-family: 'Rubik', sans-serif;
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.faq-booking-cta {
+    margin-top: 30px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8fbff 0%, #ebf5ff 100%);
+    border-radius: 15px;
+    border-left: 5px solid #1A8EFD;
+}
+
+.cta-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.cta-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.cta-list li {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-list-icon {
+    font-size: 12px;
+    color: #1A8EFD;
+}
+
+.faq-book-btn {
+    margin-top: 15px;
+    padding: 14px 28px;
+    background-color: #1A8EFD;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.faq-book-btn:hover {
+    background-color: #157edb;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 142, 253, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .faq-section {
+        padding: 60px 20px;
+    }
+
+    .faq-main-title {
+        font-size: 28px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 15px 20px;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+        padding: 0 20px 15px;
+    }
+
+    .faq-category-title {
+        font-size: 20px;
+    }
+
+    .cta-text p {
+        font-size: 16px;
+    }
+
+    .cta-list li {
+        font-size: 14px;
+    }
+}

@@ -10,12 +10,12 @@ function Footer() {
         <div className="ft-info">
           <div className="ft-info-p1">
             <p className="ft-title">
-              Health <span className="ft-sign">+</span>
+              Albright Clinic
             </p>
             <p className="ft-description">
-              Talk to online doctors and get medical advice, online
-              prescriptions, refills and medical notes within minutes. On-demand
-              healthcare services at your fingertips.
+              Compassionate psychiatric and behavioral healthcare in Richmond, Texas.
+              Professional mental health services for adolescents and adults.
+              Your mental wellness is our priority.
             </p>
           </div>
 
@@ -26,72 +26,57 @@ function Footer() {
           <p className="ft-list-title">Services</p>
           <ul className="ft-list-items">
             <li>
-              <a href="#services">Emergency Care</a>
+              <Link to="/services">Psychiatric Evaluations</Link>
             </li>
             <li>
-              <a href="#services">Heart Disease</a>
+              <Link to="/services">Medication Management</Link>
             </li>
             <li>
-              <a href="#services">Dental Care</a>
+              <Link to="/services">Individual Therapy</Link>
             </li>
             <li>
-              <a href="#services">Prescription</a>
+              <Link to="/services">Behavioral Health</Link>
             </li>
             <li>
-              <a href="#services">Insights for doctors</a>
+              <Link to="/services">Mental Health Treatment</Link>
             </li>
           </ul>
         </div>
+
 
         <div className="ft-list">
-          <p className="ft-list-title">Legal</p>
-          <ul className="ft-list-items">
-            <li>
-              <Link to={"/legal"}>General Info</Link>
-            </li>
-            <li>
-              <Link to={"/legal"}>Privacy Policy</Link>
-            </li>
-            <li>
-              <Link to={"/legal"}>Terms of Services</Link>
-            </li>
-            <li>
-              <Link to={"/legal"}>Consultations</Link>
-            </li>
-            <li>
-              <Link to={"/legal"}>How it Works</Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="ft-list" id="contact">
           <p className="ft-list-title">Talk To Us</p>
           <ul className="ft-list-items">
             <li>
-              <a href="mailto:support@healthplus.com">support@healthplus.com</a>
+              <a href="mailto:bookings@albrightclinic.com">bookings@albrightclinic.com</a>
             </li>
             <li>
-              <a href="mailto:appointment@healthplus.com">
-                appointment@healthplus.com
-              </a>
+              <a href="tel:+17136240727">+1 (713) 624-0727</a>
             </li>
             <li>
-              <a href="tel:+022 5454 5252">+022 5454 5252</a>
+              <a href="https://maps.app.goo.gl/Rqoix49hrBepb4J77"><p style={{ margin: '5px 0', color: '#666' }}>20711 Slate CT, RICHMOND TX 77407</p></a>
             </li>
             <li>
-              <a href="tel:+022 2326 6232">+022 2326 6232</a>
+              <Link to="/contact">Contact Form</Link>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="ft-copyright">
-        <p>© 2013-2023 Health+. All rights reserved.</p>
+        <p>© 2026 Albright Clinic. All rights reserved.</p>
+        <br className="ft-mobile-break" />
+        <a href="https://gstatmobile.com" target="_blank" rel="noopener noreferrer" className="ft-developer">
+          <p>Developed by GSTAT MOBILE SOLUTIONS</p>
+        </a>
+
+
+
 
         <ul className="ft-social-links">
           <li>
             <a
-              href="https://linkedin.com/in/Alkaison/"
+              href="https://linkedin.com/in/"
               title="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
@@ -125,7 +110,7 @@ function Footer() {
 
           <li>
             <a
-              href="https://x.com/Alkaison/"
+              href="https://x.com/"
               title="Twitter"
               target="_blank"
               rel="noopener noreferrer"

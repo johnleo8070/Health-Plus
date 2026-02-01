@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Doctor from "../Assets/doctor-picture.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarCheck, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "../Styles/Hero.css";
 
 function Hero() {
   const navigate = useNavigate();
-  const [goUp, setGoUp] = useState(false);
+  const [goUp, setGoUp] = React.useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -17,7 +18,7 @@ function Hero() {
     navigate("/appointment");
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     const onPageScroll = () => {
       if (window.scrollY > 600) {
         setGoUp(true);
@@ -35,44 +36,82 @@ function Hero() {
   return (
     <div className="section-container">
       <div className="hero-section">
-        <div className="text-section">
-          <p className="text-headline">❤️ Health comes first</p>
-          <h2 className="text-title">
-            Find your Doctor and make an Appointments
-          </h2>
-          <p className="text-descritpion">
-            Talk to online doctors and get medical advice, online prescriptions,
-            refills and medical notes within minutes. On-demand healthcare
-            services at your fingertips.
-          </p>
-          <button
+        <motion.div
+          className="text-section"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.p
+            className="text-headline"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            🧠 Mental Wellness First
+          </motion.p>
+          <motion.h2
+            className="text-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
+          >
+            Compassionate Psychiatric & Behavioral Healthcare You Can Trust
+          </motion.h2>
+          <motion.p
+            className="text-description"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            Albright Clinic is a leading provider of mental health and behavioral services in Richmond, Texas.
+            We offer comprehensive psychiatric care for adolescents and adults, helping individuals achieve
+            emotional stability, mental clarity, and improved quality of life through personalized,
+            evidence-based treatment.
+          </motion.p>
+          <motion.button
             className="text-appointment-btn"
             type="button"
             onClick={handleBookAppointmentClick}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <FontAwesomeIcon icon={faCalendarCheck} /> Book Appointment
-          </button>
-          <div className="text-stats">
+          </motion.button>
+          <motion.div
+            className="text-stats"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.7 }}
+          >
             <div className="text-stats-container">
-              <p>145k+</p>
-              <p>Receive Patients</p>
+              <p>Compassionate</p>
+              <p>Care</p>
             </div>
 
             <div className="text-stats-container">
-              <p>50+</p>
-              <p>Expert Doctors</p>
+              <p>Experienced</p>
+              <p>Experts</p>
             </div>
 
             <div className="text-stats-container">
-              <p>10+</p>
-              <p>Years of Experience</p>
+              <p>Personalized</p>
+              <p>Approach</p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="hero-image-section">
+        <motion.div
+          className="hero-image-section"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+        >
           <img className="hero-image1" src={Doctor} alt="Doctor" />
-        </div>
+        </motion.div>
       </div>
 
       <div

@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../Styles/AppointmentForm.css";
 import { ToastContainer, toast } from "react-toastify";
 
 function AppointmentForm() {
-  useEffect(() => {
+  React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  const [patientName, setPatientName] = useState("");
-  const [patientNumber, setPatientNumber] = useState("");
-  const [patientGender, setPatientGender] = useState("default");
-  const [appointmentTime, setAppointmentTime] = useState("");
-  const [preferredMode, setPreferredMode] = useState("default");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formErrors, setFormErrors] = useState({});
+  const [patientName, setPatientName] = React.useState("");
+  const [patientNumber, setPatientNumber] = React.useState("");
+  const [patientGender, setPatientGender] = React.useState("default");
+  const [appointmentTime, setAppointmentTime] = React.useState("");
+  const [preferredMode, setPreferredMode] = React.useState("default");
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [formErrors, setFormErrors] = React.useState({});
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate form inputs
@@ -54,28 +54,48 @@ function AppointmentForm() {
       return;
     }
 
-    // Reset form fields and errors after successful submission
-    setPatientName("");
-    setPatientNumber("");
-    setPatientGender("default");
-    setAppointmentTime("");
-    setPreferredMode("default");
-    setFormErrors({});
+    // Send data to backend
+    try {
+      const response = await fetch("http://localhost:5000/api/appointment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          patientName,
+          patientNumber,
+          patientGender,
+          appointmentTime,
+          preferredMode,
+        }),
+      });
 
-    toast.success("Appointment Scheduled !", {
-      position: toast.POSITION.TOP_CENTER,
-      onOpen: () => setIsSubmitted(true),
-      onClose: () => setIsSubmitted(false),
-    });
+      if (response.ok) {
+        toast.success("Appointment Scheduled & Email Sent!", {
+          position: toast.POSITION.TOP_CENTER,
+          onOpen: () => setIsSubmitted(true),
+          onClose: () => setIsSubmitted(false),
+        });
+
+        // Reset form fields
+        setPatientName("");
+        setPatientNumber("");
+        setPatientGender("default");
+        setAppointmentTime("");
+        setPreferredMode("default");
+        setFormErrors({});
+      } else {
+        toast.error("Failed to send appointment request. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Server error. Please try again later.");
+    }
   };
 
   return (
     <div className="appointment-form-section">
-      <h1 className="legal-siteTitle">
-        <Link to="/">
-          Health <span className="legal-siteSign">+</span>
-        </Link>
-      </h1>
+
 
       <div className="form-container">
         <h2 className="form-title">
@@ -154,12 +174,12 @@ function AppointmentForm() {
             Confirm Appointment
           </button>
 
-          <p className="success-message" style={{display: isSubmitted ? "block" : "none"}}>Appointment details has been sent to the patients phone number via SMS.</p>
+          <p className="success-message" style={{ display: isSubmitted ? "block" : "none" }}>Appointment details has been sent to the patients phone number via SMS.</p>
         </form>
       </div>
 
       <div className="legal-footer">
-        <p>© 2013-2023 Health+. All rights reserved.</p>
+        <p>© 2024 Albright Clinic. All rights reserved.</p>
       </div>
 
       <ToastContainer autoClose={5000} limit={1} closeButton={false} />
